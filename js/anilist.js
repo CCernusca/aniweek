@@ -9,10 +9,13 @@ query ($userName: String) {
           id
           siteUrl
           title {
-            userPreferred
+            english
+            romaji
           }
+          description(asHtml: false)
           coverImage {
-            medium
+            large
+            color
           }
           nextAiringEpisode {
             airingAt
@@ -28,7 +31,7 @@ query ($userName: String) {
 /**
  * Fetches the anime a user is currently watching, from AniList.
  * @param {string} userName
- * @returns {Promise<Array<{id:number,siteUrl:string,title:string,cover:string,nextAiringEpisode:{airingAt:number,episode:number}|null}>>}
+ * @returns {Promise<Array<{id:number,siteUrl:string,title:string,description:string,cover:string,color:string|null,nextAiringEpisode:{airingAt:number,episode:number}|null}>>}
  */
 async function fetchWatchingList(userName) {
   const response = await fetch(ANILIST_ENDPOINT, {
@@ -56,8 +59,10 @@ async function fetchWatchingList(userName) {
   return entries.map((entry) => ({
     id: entry.media.id,
     siteUrl: entry.media.siteUrl,
-    title: entry.media.title.userPreferred,
-    cover: entry.media.coverImage?.medium || "",
+    title: entry.media.title.english || entry.media.title.romaji,
+    description: entry.media.description || "",
+    cover: entry.media.coverImage?.large || "",
+    color: entry.media.coverImage?.color || null,
     nextAiringEpisode: entry.media.nextAiringEpisode || null,
   }));
 }
