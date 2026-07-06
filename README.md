@@ -1,10 +1,12 @@
+![alt text](assets/favicon.svg)
+
 # aniweek
+
+A little webapp for visualising when during the week anime which the user is watching are airing, using data from AniList.
 
 ![aniweek screenshot](assets/demo-1.png)
 
 *Demo image of the webapp interface*
-
-A little webapp for visualising when during the week anime which the user is watching are airing, using data from AniList.
 
 ## Features
 
@@ -19,6 +21,11 @@ A little webapp for visualising when during the week anime which the user is wat
 - All weekday/month names and times are rendered in English regardless of browser locale
 - Click any box or bar to open a popup with title, cover image, description, airing info, and a link to AniList; click outside the popup (or press Escape) to close it
 - No account, login, or backend required — all data comes live from the public AniList GraphQL API
+- Favicon styled after the app's day-column boxes: two dark tiles with a bright blue outline, "A" and "W"
+
+![details view](assets/demo-2.png)
+
+*Demo image of the details view*
 
 ## Usage
 

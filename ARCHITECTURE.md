@@ -7,10 +7,11 @@ aniweek is a static, client-only web app. There is no backend, build step, or bu
 ## File layout
 
 ```
-index.html       Page shell: topbar (title + form), week table container, not-airing section, modal markup
-css/style.css     All styling (dark theme, topbar, week table grid, colored boxes/bars, modal, responsive breakpoints)
-js/anilist.js     AniList API client: builds/sends the GraphQL query, normalizes the response
-js/app.js         UI logic: form handling, rendering the week table and not-airing bars, modal popup
+index.html         Page shell: topbar (title + form), week table container, not-airing section, modal markup
+css/style.css       All styling (dark theme, topbar, week table grid, colored boxes/bars, modal, responsive breakpoints)
+js/anilist.js       AniList API client: builds/sends the GraphQL query, normalizes the response
+js/app.js           UI logic: form handling, rendering the week table and not-airing bars, modal popup
+assets/favicon.svg  Favicon: two boxes styled like a `.day-column.today` tile (dark surface fill, accent-color outline/text), "A" and "W"
 ```
 
 No module bundler or package manager is used; the two scripts are loaded as plain `<script>` tags in dependency order (`anilist.js` before `app.js`) and communicate via global functions.
@@ -39,4 +40,3 @@ The AniList GraphQL API is public and CORS-enabled for browser requests, so a st
 
 - Additional list statuses (e.g. `PLANNING`, `PAUSED`) can be added by extending the GraphQL query's `status` filter or querying multiple statuses at once.
 - Per-episode (rather than just next-episode) schedules would require the `airingSchedule` field on `Media` instead of `nextAiringEpisode`.
-- Persisting a username (e.g. via `localStorage`) would avoid re-entering it on each visit.
