@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aniweek</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>aniweek</h1>
+    <p class="tagline">See when your anime airs during the week</p>
+  </header>
+
+  <main>
+    <form id="user-form" class="user-form">
+      <label for="username">AniList username</label>
+      <input type="text" id="username" name="username" placeholder="e.g. Josh" autocomplete="off" required />
+      <button type="submit">Load schedule</button>
+    </form>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <section id="week-grid" class="week-grid" hidden></section>
+
+    <section id="unscheduled" class="unscheduled" hidden>
+      <h2>No upcoming episode</h2>
+      <ul id="unscheduled-list"></ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Data from <a href="https://anilist.co" target="_blank" rel="noopener">AniList</a>. Not affiliated with AniList.</p>
+  </footer>
+
+  <script src="js/anilist.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
